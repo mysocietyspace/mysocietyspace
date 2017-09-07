@@ -1,0 +1,12 @@
+{
+    "outputDir": "./build/docs",
+    "contentDir": "",
+    "apiDir": "./app/",
+    "logoFile": "",
+    "opts": {
+        "encoding": "utf8",
+        "private": true,
+        "recurse": true,
+        "template": "node_modules/minami"
+    }
+}

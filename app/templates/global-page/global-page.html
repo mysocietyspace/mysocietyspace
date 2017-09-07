@@ -1,0 +1,57 @@
+<a href="#" tool-tip="An approval that the insurance plan requires before your plan will cover your prescription. If a prior authorization is not completed, you may pay more for the medication, or it may not be covered."  tooltip-position="down">ToolTip</a>
+<div class="col-lg-12 col-md-12 col-xs-12 padding-zero">
+<!--- mobile Device -->
+
+<div ng-hide="displayFlexibleOverlay" class="col-xs-12 hidden-md hidden-lg global-template padding-zero">
+  <div class="col-sm-12 col-xs-12 template__flexible-overlay padding-zero">
+    <!--include mobile view-->
+    <div class="template__flexible-overlay--close">
+      <i class="material-icons search-close pull-right" ng-click="displayFlexibleOverlay = true"></i>
+      <div class="clear clearfix"></div>
+    </div>
+    <div ng-include="'../../components/static-flexible-overlay/static-flexible-overlay.html'"></div>
+  </div>
+</div>
+
+<!--- Tablet/desktop Device -->
+<div class="col-lg-12 col-md-12 col-xs-12 global-template gutter--bottom padding-zero" >
+  <div imageonload>
+  <img class="image-component"  src="./resources/river_pic.png" alt="img" />
+  </div>
+  <div class="global-template--home col-lg-10 col-lg-offset-1 col-md-12 col-xs-12">
+    <div class="global-template__container col-lg-12 col-md-12 col-xs-12 padding-zero">
+      <div class="global-template__label--heading padding-zero"><p>Reimagine possible</p></div>
+      <div class="global-template__content col-lg-12 col-md-12 col-sm-12 col-xs-12 test padding-zero">
+        <div ng-include="'../../components/condition-picker-panel/condition-picker-panel.html'"></div>
+      </div>
+    </div>
+
+    <div class="col-lg-12 global__flexible-zone col-md-12 hidden-sm hidden-xs padding-zero" id="skip">
+      <div class="global__flexible-zone--content">
+        <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12 padding-zero">
+          <div ng-include="'../../components/flexible-callout/flexible-callout.html'"></div>
+        </div>
+
+        <div class="col-lg-7 col-md-7 col-sm-7 col-xs-12 template__flexible-overlay padding-zero">
+          <div ng-include="'../../components/static-flexible-overlay/static-flexible-overlay.html'"></div>
+          <div class="clear clearfix"></div>
+        </div>
+        <div class="clear clearfix"></div>
+      </div>
+       </div>
+  </div>
+  </div>
+
+
+
+
+<!--- mobile Device -->
+  <div class="col-xs-12 hidden-md hidden-lg global-template gutter--bottom padding-zero">
+    <div class="col-sm-12 col-xs-12 padding-zero">
+        <!--include mobile view-->
+        <div ng-include="'../../components/flexible-callout/flexible-callout.html'"></div>
+      </div>
+    </div>
+    <div class="clear clearfix"></div>
+</div>
+<div class="clear clearfix"></div>

@@ -1,0 +1,16 @@
+.tooltip {
+  background-color: $bg-bigStone;
+  color: $bg-alt-secondary-color;
+  display: none;
+  font-family: $font-stack-primary-medium;
+  font-size: $base-font + px;
+  max-width: 350px;
+  opacity: 1;
+  padding: 15px;
+  position: absolute;
+  width: 90%;
+}
+
+.tooltip-show {
+  display: inherit;
+}

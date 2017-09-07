@@ -1,0 +1,99 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>Humira.com</title>
+    <meta name="description" content="" />
+    <meta name="locale" content="" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="shortcut icon" type="image/png" href="/favicon.ico" />
+
+    <link href="/css/vendor/vendor.css" rel="stylesheet" />
+    <link href="/css/global/styles/global.css" rel="stylesheet" />
+    <link type="text/css" rel="stylesheet" href="//fast.fonts.net/cssapi/d74ba9f4-09eb-4207-9b77-b43a03bfd42c.css"/>
+    <link href="/css/templates/global-page/global-page.style.css" rel="stylesheet" />
+    <link href="/css/components/utility-navigation/utility-navigation.style.css" rel="stylesheet" />
+    <link href="/css/components/masthead/masthead.style.css" rel="stylesheet" />
+    <link href="/css/components/search-component/search-component.style.css" rel="stylesheet" />
+    <link href="/css/components/condition-picker-panel/condition-picker-panel.style.css" rel="stylesheet" />
+    <link href="/css/components/flexible-callout/flexible-callout.style.css" rel="stylesheet" />
+    <link href="/css/components/static-flexible-overlay/static-flexible-overlay.style.css" rel="stylesheet" />
+    <link href="/css/components/safety-bar/safety-bar.style.css" rel="stylesheet" />
+    <link href="/css/components/primary-navigation/primary-navigation.style.css" rel="stylesheet" />
+
+</head>
+
+<body ng-app="abbvie">
+
+  <div class="wrapper">
+
+    <!-- Utility Nav bar -->
+    <div ng-include="'../../components/utility-navigation/utility-navigation.html'"></div>
+
+    <div class="col-lg-12 no-padding page-wrapper">
+      <!-- Masthead -->
+      <div ng-include="'../../components/masthead/masthead.html'"></div>
+      <!-- Masthead -->
+      <a href="#" tool-tip="An approval that the insurance plan requires before your plan will cover your prescription. If a prior authorization is not completed, you may pay more for the medication, or it may not be covered."  tooltip-position="down">ToolTip</a>
+      <div ng-include="'../../components/primary-navigation/primary-navigation.html'"></div>
+      <div class="gutter--bottom clearfix"></div>
+      <!-- Safety Bar -->
+      <div ng-include="'../../components/safety-bar/safety-bar.html'"></div>
+    </div>
+    <div ng-include="'./global-page.html'"></div>
+    <div class="lineandspace parbase">
+      <hr>
+    </div>
+    <div class="col-lg-12 no-padding page-wrapper">
+      <!-- ISI content -->
+      <div class="isi-content" ng-include="'../../components/isi-content/isi-content.html'"> </div>
+
+      <!-- Epass Number -->
+      <div ng-include="'../../components/epass-number/epass-number.html'"></div>
+
+       <a href="1.800.4486472" rel="noreferrer">1.800.4486472</a>
+      <!-- Fat Footer -->
+      <div ng-include="'../../components/fat-footer/fat-footer.html'"></div>
+
+      <!-- Legal Footer -->
+      <div ng-include="'../../components/legal-footer/legal-footer.html'"></div>
+    </div>
+  </div>
+
+  <script src="/global/scripts/_namespace.js"></script>
+  <script src="/global/scripts/_global-configs.js"></script>
+  <script src="/js/vendor/vendor.js"></script>
+  <script src="/js/global/global.js"></script>
+  <script src="/js/_development/side-nav.js"></script>
+  <script src="/js/components/utility-navigation/utility-navigation.js"></script>
+  <script src="/js/components/masthead/masthead.js"></script>
+  <script src="/js/components/safety-bar/safety-bar.js"></script>
+  <script src="/js/components/primary-navigation/primary-navigation.js"></script>
+  <script src="/js/components/search-component/search-component.js"></script>
+  <script src="/js/components/condition-picker-panel/condition-picker-panel.js"></script>
+  <script>
+    abbvie.extend('searchConfigs');
+    abbvie.extend('searchAuthorConfigs');
+    abbvie.extend('searchResultConfig');
+    abbvie.searchConfigs = {
+      autoCompleteUrl : 'http://content.atomz.com/autocomplete/sp10/05/0f/13-stage',
+      searchResultsEndpoint: 'http://stage.sp10050f13.guided.ss-omtrdc.net',
+      transportTemplate: 'humira-search-transport',
+      stageOrLive: 1
+    };
+    abbvie.searchAuthorConfigs = {
+      enablePredictiveSearch: 'true',
+      keywordLength: 3,
+      noOfResultPerPage: 4,
+      searchResultsPageUrl: '/content/humira/en-us/search-results.html'
+    };
+    abbvie.searchResultConfig = {
+      noResultsMessage:'No results for {} were found. Please re-enter your search criteria.',
+      resultsMessage:'Showing {} out of {}',
+      subHeading:'Search results for'
+    };
+  </script>
+</body>
+
+</html>

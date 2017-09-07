@@ -1,0 +1,70 @@
+@import '../../global/styles/_mixins';
+@import '../../global/styles/_theme.humira';
+
+
+.accordion-section {
+  border-top: 1px dotted #dfdfdf;
+  color: $link-color-blue;
+  margin: 20px 0 10px;
+
+  .accordion--title {
+    @include font-size(16);
+    display: inline-block;
+    font-family: $font-stack-primary-semi-bold;
+    width: 90%;
+  }
+
+  .accordion--panel {
+    border-bottom: 1px dotted#dfdfdf;
+    border-radius: 0;
+
+    .material-icons {
+      &:before {
+        content: '\E147';
+      }
+    }
+
+    &.panel-open {
+      .material-icons {
+        &:before {
+          content: '\E15C';
+        }
+      }
+
+      .accordion--title {
+        font-family: $font-stack-primary-bold;
+      }
+    }
+  }
+
+  .accordion-toggle {
+    vertical-align: baseline;
+    vertical-align: -webkit-baseline-middle;
+    width: 100%;
+  }
+
+  .accordion--plus-icon {
+    @include font-size(16);
+    display: inline-block;
+  }
+  .panel {
+    box-shadow: none;
+  }
+}
+.panel {
+  box-shadow: none;
+}
+.panel-group {
+  margin-bottom: 0;
+
+  .panel-heading {
+    padding: 20px;
+  }
+
+  .panel-heading + .panel-collapse {
+    > .panel-body {
+      border-top: 0;
+      padding: 0 20px 20px;
+    }
+  }
+}
