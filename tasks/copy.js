@@ -9,6 +9,10 @@ module.exports = {
         gulp.src( `${ config.app }/**/*.html` )
         .pipe( gulp.dest( config.destHTML ) )
         .pipe( livereload() ),
+    assets: () =>
+        gulp.src( `${ config.app }/assets/` )
+        .pipe( gulp.dest( config.destHTML ) )
+        .pipe( livereload() ),
     fonts: () =>
         gulp.src( `${ config.app }/global/styles/fonts/**/*.*` )
         .pipe( gulp.dest( `${ config.destCSS }/css/global/styles/fonts/` ) )

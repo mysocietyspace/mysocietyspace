@@ -10,7 +10,6 @@
   .accordion--title {
     @include font-size(16);
     display: inline-block;
-    font-family: $font-stack-primary-semi-bold;
     width: 90%;
   }
 
@@ -29,10 +28,6 @@
         &:before {
           content: '\E15C';
         }
-      }
-
-      .accordion--title {
-        font-family: $font-stack-primary-bold;
       }
     }
   }

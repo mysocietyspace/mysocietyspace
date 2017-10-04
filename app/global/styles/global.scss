@@ -5,63 +5,27 @@
 @import './_buttons';
 @import './_spinners';
 @import './_tooltip';
-
-.wrapper {
-  @include medium {
-    padding: 0 9px;
-  }
-  @include small {
-    padding: 0;
-  }
-  margin: 0 auto;
-  max-width: $large-max-width;
-  padding: 0 11px;
-  width: 100%;
-
-  img {
-    max-width: 100%;
-  }
-
-  .clear-fix {
-    float: left;
-    margin-bottom: 30px;
-    width: 100%;
-  }
-
-  .transcript-content-page {
-    margin: 0;
-    max-width: 800px;
-    padding-top: 10px;
-    width: 100%;
-
-    .h1-title-styles {
-      .h1-title--heading {
-        padding-left: 0;
-      }
-    }
-  }
-
-  #skip {
-    padding: 0 15px;
-  }
-  &.iframe-form {
-    padding: 0 !important;
-    #skip {
-      padding: 0 !important;
-      .visible-xs {
-        display: none !important;
-      }
-    }
-  }
-}
+@import './_home';
 
 html,
 body {
   background-color: $bg-body;
   color: $body-copy-color;
-  font-family: $font-stack-primary-medium;
-  font-size: $base-font + px;
+  font-family: $font-stack;
+  @include font-size(16);
   line-height: 120%;
+  font-weight: 400;
+}
+
+.wrapper{
+  width: 100%;
+  max-width: $large-max-width;
+  .container{
+    width: 100%;
+    max-width: $container-max-width;
+    position: relative;
+    z-index: 1;
+  }
 }
 
 h1 {
@@ -69,8 +33,7 @@ h1 {
   @include small {
     @include font-size( 21 );
   }
-  font-family: $font-stack-primary-bold;
-  font-weight: 300;
+  font-weight: 700;
   margin-bottom: 20px;
 }
 
@@ -79,55 +42,32 @@ h2 {
   @include small {
     @include font-size( 20 );
   }
-  font-family: $font-stack-primary-semi-bold;
-  font-weight: 300;
+  font-weight: 600;
   margin-bottom: 20px;
 }
 
 h3 {
   @include font-size( 18 );
-  font-family: $font-stack-primary-bold;
-  font-weight: 300;
+  font-weight: 400;
   margin-bottom: 20px;
 }
 
 h4,
 h5 {
   @include font-size( 18 );
-  font-family: $font-stack-primary-semi-bold;
   font-weight: 300;
   margin-bottom: 20px;
 }
 
 h6 {
   @include font-size( 16 );
-  font-family: $font-stack-primary-medium;
   font-weight: 300;
   margin-bottom: 20px;
 }
 
-.body--fixed {
-  left: 0;
-  position: fixed;
-  right: 0;
-  &.md-dialog-is-showing {
-    position: fixed !important;
-    top: 0 !important;
-  }
-}
-
-.h1-title--border,
-.h2-title--border {
-  border-left-width: 3px;
-  border-style: solid;
-  padding: 10px 20px 10px 10px;
-}
 
 p {
   @include font-size( 16 );
-  color: $body-copy-color;
-  display: inline-block;
-  font-family: $font-stack-primary-medium;
   margin-bottom: 20px;
   width: 100%;
 }
@@ -135,17 +75,11 @@ p {
 a {
   @include font-size( 16 );
   color: $link-color-primary;
-  font-family: $font-stack-primary-semi-bold;
   text-decoration: none;
   &:active {
     color: $link-color-primary-active;
     text-decoration: none;
   }
-  //AVH-1285 commented this code to remove the visited state of link as per the ticket.
-  // &:visited {
-  //   color: $link-color-primary-active;
-  //   text-decoration: none;
-  // }
 
   &:hover {
     color: $link-color-primary-hover;
@@ -153,22 +87,81 @@ a {
   }
 }
 
-//Font weights 
-.text-extra--bold {
-  font-family: $font-stack-primary-extra-bold !important;
+.blk-overlay{
+  background-color: rgba( 45, 58, 75, 0.5 );
+  height: 100%;
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 0;
 }
-.text--bold {
-  font-family: $font-stack-primary-bold !important;
+
+//header section
+header{
+  width: 100%;
+  position: relative;
+  .mast-head{
+    width: 100%;
+    margin-top: 10px;
+
+    .logo{
+      width: 170px;
+      height: 84px;
+      background: url('/assets/images/logo.png') no-repeat;
+      float: left;
+      text-indent: -99999px;
+    }
+    .header-nav{
+      width: auto;
+      float: right;
+      margin: 22px 0 0;
+      padding: 10px 25px;
+      background-color: $bg-primary;
+      @include border-radius(5px);
+      li{
+        display: inline-block;
+      }
+    }
+    .banner-text{
+      width: 100%;
+      float: left;
+      margin: 95px 0 0;
+      color: $text-color-logo;
+      h2{
+        font-weight: 300;
+        @include font-size(36);
+        margin-bottom: 10px;
+      }
+      p{
+        color: $text-color-logo;
+        font-weight: 300;
+      }
+    }
+  }
+  .search-form{
+    width: 100%;
+    position: absolute;
+    bottom: -33px;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 66%;
+    z-index: 1;
+    input{
+      border: 0px;
+      width: 100%;
+      height: 65px;
+      @include border-radius(5px);
+      padding: 10px;
+      -webkit-box-shadow: 0px 5px 5px 0px rgba(45,58,75,0.26);
+      -moz-box-shadow: 0px 5px 5px 0px rgba(45,58,75,0.26);
+      box-shadow: 0px 5px 5px 0px rgba(45,58,75,0.26);
+    }
+  }
 }
-.text-semi--bold {
-  font-family: $font-stack-primary-semi-bold !important;
-}
-.text--medium {
-  font-family: $font-stack-primary-medium !important;
-}
-.text--light {
-  font-family: $font-stack-primary-light !important;
-}
+
+
 
 // Headers, body copy , subheaders, font color theme
 .text-color__black {
@@ -788,7 +781,6 @@ a {
 .error {
   @include font-size( 12 );
   color: $form-bg-error;
-  font-family: $font-stack-primary-medium;
 }
 
 .link-right-arrow-icon {
@@ -820,91 +812,6 @@ table {
   }
 }
 
-.rte-list-style {
-  ol {
-    color: $text-color-secondary-active;
-    display: table;
-    list-style-position: inside;
-
-    li {
-      counter-increment: listitemcounter;
-      display: table-row;
-      margin-bottom: 10px;
-
-      &:before {
-        content: counter( listitemcounter ) '';
-        display: table-cell;
-        font-family: $font-stack-primary-semi-bold;
-      }
-
-      span {
-        left: 8px;
-        position: relative;
-      }
-    }
-
-    ol {
-      color: $text-color-soft-black;
-      margin: 15px 0 15px 40px;
-    }
-  }
-
-  ul {
-    color: $text-color-primary;
-    list-style-position: outside;
-    list-style-type: disc;
-    margin-left: 17px;
-
-    li {
-      margin-bottom: 15px;
-
-      p {
-        margin-bottom: 15px;
-        vertical-align: top;
-
-        &:last-child {
-          margin-bottom: 0;
-        }
-      }
-
-      span {
-        left: 3px;
-        position: relative;
-      }
-    }
-
-    ul {
-      @include small {
-        margin: 15px 0 15px 20px;
-      }
-      color: $text-color-soft-black;
-      list-style-type: circle;
-      margin: 15px 0 15px 40px;
-    }
-  }
-
-  p:last-child {
-    margin-bottom: 5px;
-  }
-}
-
-.use-statement {
-  margin: 50px 0 10px;
-
-  p:last-child {
-    margin-bottom: 0;
-  }
-}
-
-.iframe-component-parent {
-  max-width: 100%;
-  overflow: auto !important;
-  -webkit-overflow-scrolling: touch !important;
-
-  iframe {
-    float: left;
-  }
-}
 
 .display-flex {
   @include small {
@@ -917,126 +824,12 @@ table {
   width: 100%;
 }
 
-.isi-content {
-  clear: both;
-  margin-top: 40px;
-
-  h3 {
-    @include font-size( 20 );
-  }
-
-  h6 {
-    margin: 0 0 20px;
-  }
-
-  p.epass-number {
-    margin: 25px 0 50px;
-  }
-
-  .rte-list-style {
-    @include small {
-      ul,
-      ol {
-        margin-left: 17px;
-
-        ul,
-        ol {
-          margin: 15px 0 15px 30px;
-        }
-      }
-    }
-
-    b {
-      font-family: $font-stack-primary-bold;
-      font-weight: 300;
-    }
-
-    p {
-      &.epass-number {
-        margin: 25px 0 50px;
-      }
-    }
-
-    ul {
-      margin-left: 46px;
-
-      li {
-        margin-bottom: 0;
-      }
-    }
-  }
-}
-
 .padding-bottom-10 {
   padding-bottom: 10px;
 }
 .bottom-space-0 {
   margin-bottom: 0;
   padding-bottom: 0;
-}
-
-md-dialog.md-default-theme,
-md-dialog {
-  @include border-radius( 0 );
-  background-color: $bg-modal-window-color;
-}
-
-md-dialog:not(  .md-dialog--exit-modal  ) {
-  height: auto;
-  max-width: calc( 1180px - 22px ) !important;
-  width: 80%;
-}
-
-md-dialog {
-  .close-button {
-    padding: 6px 6px 0 0;
-  }
-}
-
-.md-dialog-container {
-  @include medium {
-    overflow: hidden;
-    position: fixed;
-    top: 62px !important;
-  }
-  @include small {
-    overflow: hidden;
-    position: fixed;
-    top: 32px !important;
-  }
-  &.gastro-tool-md-dialog {
-    @include small {
-      top: 32px !important;
-    }
-  }
-  overflow: visible;
-  top: 0;
-  z-index: 100;
-}
-
-.md-dialog-container,
-.md-dialog-container md-dialog {
-  height: auto;
-  max-height: none;
-}
-
-.md-dialog-is-showing {
-  @include small {
-    overflow: hidden;
-  }
-  @include medium {
-    overflow: hidden;
-  }
-  position: static !important;
-}
-
-.transcript-page {
-  margin-top: 50px;
-
-  h1 {
-    border-bottom: 2px solid $text-color-plum;
-    padding: 0 0 10px;
-  }
 }
 
 .lineandspace {
@@ -1049,22 +842,6 @@ md-dialog {
   }
 }
 
-.form-level__error {
-  @include font-size( 14 );
-  color: $form-bg-error;
-  float: left;
-  margin-top: -10px;
-  padding: 10px;
-  width: 100%;
-}
-
-.column--container {
-  @include small {
-    .abbvie-image {
-      text-align: center;
-    }
-  }
-}
 
 .loading-spiner-holder {
   background-color: rgba( 0, 0, 0, 0.5 );
@@ -1097,9 +874,4 @@ md-dialog {
 .disabled {
   background-color: $bg-alt-primary-hover-color;
   border-color: $border-color-hover-grey;
-}
-
-.dsa-signup--emailconfirmationmessage,
-.speaker-signup--emailconfirmationmessage {
-  word-break: break-all;
 }

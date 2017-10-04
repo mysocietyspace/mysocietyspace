@@ -8,7 +8,6 @@
     background: $bg-primary-color;
     color: $bg-alt-secondary-color;
     display: inline-block;
-    font-family: $font-stack-primary-bold;
     height: 40px;
     line-height: 40px;
     text-align: center;
@@ -34,7 +33,6 @@
     background: $bg-secondary-color;
     color: $bg-alt-secondary-color;
     display: inline-block;
-    font-family: $font-stack-primary-bold;
     min-height: 40px;
     min-width: 150px;
     padding: 15px;
@@ -86,13 +84,11 @@
           height: auto;
           line-height: 14px;
         }
-        font-family: $font-stack-primary-medium;
         line-height: 13px;
       }
 
       .next-text--small {
         @include font-size(14);
-        font-family: $font-stack-primary-semi-bold;
         line-height: 11px;
         margin-bottom: 4px;
       }

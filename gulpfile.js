@@ -48,6 +48,7 @@ gulp.task( 'ngdocs:ngConnect', ngdocs.ngConnect );
  * Copy tasks
  */
 gulp.task( 'copy:html', copy.html );
+gulp.task( 'copy:assets', copy.assets );
 gulp.task( 'copy:fonts', copy.fonts );
 gulp.task( 'copy:resources', copy.resources );
 gulp.task( 'copy:theme', copy.theme );
@@ -105,6 +106,7 @@ gulp.task( 'build', ( cb ) => {
         'styles:vendor',
         'styles:modules',
         'copy:html',
+        'copy:assets',
         'copy:fonts',
         cb );
 } );
@@ -122,6 +124,7 @@ gulp.task( 'serve', ( cb ) => {
         'scripts:development',
         'styles:modules',
         'copy:html',
+        'copy:assets',
         'copy:fonts',
         'copy:resources',
         'server:client',

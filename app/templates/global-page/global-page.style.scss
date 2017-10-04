@@ -106,7 +106,6 @@ $bg-alt-secondary-color: #03618e;
         //text-align: left;
       }
       color: $white;
-      font-family: $font-stack-primary-extra-bold;
       font-size: 68px;
       line-height: 1;
       margin-bottom: 50px;
@@ -138,7 +137,6 @@ $bg-alt-secondary-color: #03618e;
 
   .homepagepicker {
     p {
-      font-family: $font-stack-primary-semi-bold;
 
       .picker__panel--font-small {
         min-height: initial;

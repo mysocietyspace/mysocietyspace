@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8" />
-    <title>Humira.com</title>
+    <title>My Society Space</title>
     <meta name="description" content="" />
     <meta name="locale" content="" />
     <meta name="viewport" content="width=device-width" />
@@ -11,55 +11,37 @@
 
     <link href="./css/vendor/vendor.css" rel="stylesheet" />
     <link href="./css/global/styles/global.css" rel="stylesheet" />
-    <link type="text/css" rel="stylesheet" href="//fast.fonts.net/cssapi/d74ba9f4-09eb-4207-9b77-b43a03bfd42c.css"/>
-<style type="text/css">
-    ul.staticLinks{
-      margin-bottom: 50px;
-    }
-    .staticLinks li{
-          width: 30%;
-          display: inline-block;
-          margin-bottom: 20px;
-          padding-bottom: 10px;
-          border-bottom: 1px solid #dfdfdf;
-          margin-right: 3%;
-        }
-    </style>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700|Open+Sans:300,400,600,700" rel="stylesheet">
+
 </head>
 
-<body ng-app="mss" ng-controller="SideNavController as sidenav">
-  <div ng-include="'/components/sidenav/toolbar.html'"></div>
+<body ng-app="mss">
+    
     <div class="wrapper">
-       <div class="clearfix gutter--bottom"></div>
-      <h1  class="text-color__plum"> AbbVie Static Components and Templates List</h1>
-        <h2> Content Display Components</h2>
-      <ul class="staticLinks">
-        <li><a href="./components/accordion">CDC.1.0 Accordion</a></li>
-      </ul>
-        
+        <header class="home">
+            <div class="container">
+                <div class="mast-head">
+                    <h1><a href="#" class="logo" title="logo">My Society Space</a></h1>
+                    <ul class="header-nav">
+                        <li><a href="#">Login</a></li>
+                        <li><a href="#">Register</a></li>
+                    </ul>
+                    <div class="banner-text">
+                        <h2>There’s beauty in simplicity</h2>
+                        <p>Nullam quis ante. Etiam sit amet orci eget eros faucibus <br>
+                           tincidunt. Duis leo. Sed fringilla mauris sit</p>
+                    </div>
+                </div>
+            </div>
+            <form class="search-form">
+                <input type="search" name="search" placeholder="What your looking for..">
+            </form>
+            <div class="blk-overlay"></div>
+        </header>
     </div>
 
-    <div class="loading-spiner-holder">
-      <div class="loading-spiner">
-        <div id="floatingCirclesG">
-          <div class="f_circleG" id="frotateG_01"></div>
-          <div class="f_circleG" id="frotateG_02"></div>
-          <div class="f_circleG" id="frotateG_03"></div>
-          <div class="f_circleG" id="frotateG_04"></div>
-          <div class="f_circleG" id="frotateG_05"></div>
-          <div class="f_circleG" id="frotateG_06"></div>
-          <div class="f_circleG" id="frotateG_07"></div>
-          <div class="f_circleG" id="frotateG_08"></div>
-        </div>
-        loading-spinner
-      </div>
-    </div>
-
-    <script src="/global/scripts/_namespace.js"></script>
-    <script src="/global/scripts/_global-configs.js"></script>
     <script src="./js/vendor/vendor.js"></script>
     <script src="./js/global/global.js"></script>
-    <script src="./js/_development/side-nav.js"></script>
 </body>
 
 </html>
