@@ -26,35 +26,11 @@
     */
 
      httpRequest( requestObject, getError ) {
-         if ( abbvie.globalConfigs && abbvie.globalConfigs.isAuthorMode !== 'true' ) {
-             let getErrorObj = getError ? true : false,
-                 vm = this;
-             if ( angular.isUndefined( requestObject.headers ) || requestObject.headers === '' ) {
-                 requestObject.headers = abbvie.globalConfigs.headers;
-                 if ( angular.isDefined( requestObject.headers[ 'auth-Token' ] ) ) {
-                     vm.checkForLoginAndRedirect();
-                 }
-                 else if ( angular.isDefined( requestObject.headers[ 'origin-name' ] ) && requestObject.headers[ 'origin-name' ].split( ',' ).length > 1 ) {
-                     requestObject.headers[ 'origin-name' ] = vm.getOriginName();
-                 }
-             }
-             else if ( angular.isDefined( requestObject.headers[ 'origin-name' ] ) && requestObject.headers[ 'origin-name' ].split( ',' ).length > 1 ) {
-                 requestObject.headers[ 'origin-name' ] = vm.getOriginName();
-             }
-             else if ( angular.isDefined( requestObject.headers[ 'auth-Token' ] ) ) {
-                 vm.checkForLoginAndRedirect();
-             }
-             $( '.loading-spiner-holder' ).show();
-
-             if ( angular.isUndefined( requestObject.timeout ) ) {
-                 requestObject.timeout = parseFloat( abbvie.humiraConfig.apiTimeout );
-             }
-
+            requestObject.url = 'http://msswebapp-env.njtgc7uer6.us-east-2.elasticbeanstalk.com'+requestObject.url
              return this.$http( requestObject ).then(
 
                 response => {
                     $( '.loading-spiner-holder' ).hide();
-
                     return response;
                 },
 
@@ -62,24 +38,6 @@
                     $( '.loading-spiner-holder' ).hide();
                     if ( getErrorObj ) {
                         return error;
-                    }
-                    else if (  error.status === 400 ) {
-                        if ( $( '.abbvieformcontainer' ).length  && angular.isDefined( error.data ) ) {
-                            $( '.form-global--error' ).html( error.data.ErrorResponseMessageList[ 0 ].ErrorMessage );
-                            $( 'html, body' ).animate( {
-                                scrollTop: $( '.abbvieformcontainer' ).offset().top - 120
-                            }, 800 );
-                        }
-                        else {
-                            if ( angular.isDefined( error.data ) ) {
-                                vm.$log.error( error.data.ErrorResponseMessageList[ 0 ].ErrorMessage );
-                            }
-
-                        }
-                    }
-                    else if (  error.status === 401 ) {
-                        vm.$window.location.href = abbvie.humiraConfig.loginPagePath;
-                        vm.logoutService();
                     }
                     else {
                         vm.$window.location.href = abbvie.humiraConfig.systemErrorPath;

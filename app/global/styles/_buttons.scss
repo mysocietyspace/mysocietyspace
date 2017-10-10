@@ -357,50 +357,24 @@
 }
 
 .primary--submit__button {
-  @include small {
-    text-align: center;
-    width: calc(100% - 40px);
-  }
   background-color: $bg-primary-color;
   color: $white;
   display: inline-block;
-  max-width: calc(100% - 40px);
+  max-width: 100%;
   min-height: 40px;
   min-width: 130px;
   padding: 10px 20px;
   position: relative;
-
-  &:before {
-    @include font-size(35);
-    color: $text-color-blue;
-    content: '\E5C7';
-    font-family: 'Material Icons';
-    position: absolute;
-    right: -40px;
-    top: calc(50% - 10px);
-    -webkit-transform: rotate(90deg);
-    transform: rotate(90deg);
-    z-index: 5;
-  }
-  &:after {
-    background-color: $bg-primary-light-color;
-    bottom: 0;
-    content: '';
-    min-height: 40px;
-    position: absolute;
-    right: -40px;
-    top: 0;
-    width: 35px;
-  }
-  @include small {
-    &:hover {
-      background: $bg-primary-active-color !important;
-      border-color: $bg-primary-active-color !important;
-    }
-  }
-
-  &:hover {
-    background: $bg-primary-hover-color;
-    border-color: $bg-primary-hover-color;
-  }
+  border-radius: 5px;
+}
+.secondary--submit__button {
+  background-color: $bg-secondary;
+  color: $white;
+  display: inline-block;
+  max-width: 100%;
+  min-height: 40px;
+  min-width: 130px;
+  padding: 10px 20px;
+  position: relative;
+  border-radius: 5px;
 }
