@@ -26,21 +26,22 @@
     */
 
      httpRequest( requestObject, getError ) {
-            requestObject.url = 'http://msswebapp-env.njtgc7uer6.us-east-2.elasticbeanstalk.com'+requestObject.url
+         let vm = this
+            requestObject.url = 'http://msswebapp-env.njtgc7uer6.us-east-2.elasticbeanstalk.com/'+requestObject.url
              return this.$http( requestObject ).then(
 
                 response => {
                     $( '.loading-spiner-holder' ).hide();
-                    return response;
+                    return response.data;
                 },
 
                 error => {
                     $( '.loading-spiner-holder' ).hide();
-                    if ( getErrorObj ) {
+                    if ( getError ) {
                         return error;
                     }
                     else {
-                        vm.$window.location.href = abbvie.humiraConfig.systemErrorPath;
+                       vm.$log.info(error);
                     }
 
                 }

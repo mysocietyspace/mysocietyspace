@@ -19,11 +19,25 @@
     
     <div class="wrapper">
         <header class="home">
+            <!-- <video style="width:100%;" autoplay loop muted>
+                <source src="https://www.commonfloor.com/public/images/promos/59870ec142fa4/Tiara_(1).mp4" type="video/mp4" >
+            </video> -->
             <div class="container">
                 <div class="mast-head">
                     <h1><a href="#" class="logo" title="logo">My Society Space</a></h1>
-                    <ul class="header-nav">
-                        <li><a href="#">Login</a></li>
+                    <ul class="header-nav" ng-controller="LoginControler as ctrl">
+                        <li>
+                            <a href="#" ng-click="ctrl.showLogin = true">Login</a>
+                            <div class="login-overlay ng-hide" ng-show="ctrl.showLogin">
+                                <h2>Login</h2>
+                                <form name="login">
+                                    <input type="text" placeholder="username" name="username" />
+                                    <input type="password" placeholder="Password" name="password" />
+                                    <a href="#" class="frgt-lnk">forgot password</a>
+                                    <a href="#" class="secondary--submit__button login-btn">login</a>
+                                </form>
+                            </div>
+                        </li>
                         <li><a href="#">Register</a></li>
                     </ul>
                     <div class="banner-text">
@@ -33,12 +47,23 @@
                     </div>
                 </div>
             </div>
-            <form class="search-form">
-                <input type="search" name="search" placeholder="What your looking for..">
+            <form class="search-form" ng-controller="SearchControler as ctrl">
+                <input type="search" ng-model="ctrl.searchText" name="search" placeholder="What your looking for..">
                 <span class="search-button">
                     <i class="material-icons search-btn"></i>
                 </span>
+                <div class="search-auto__complete" ng-show="ctrl.searchText.length > 2">
+                    <ul>
+                        <li ng-repeat="list in ctrl.filterdList = ( ctrl.resultList | filter:ctrl.searchText )">
+                            <a href="#" ng-bind="list.societyName"></a>
+                        </li>
+                        <li ng-if="!ctrl.filterdList.length">
+                            this Society is not enrolled with us. click here to enroll.
+                        </li>
+                    </ul>
+                </div>
             </form>
+            
             <div class="blk-overlay"></div>
         </header>
         <div class="container gutter--top">
@@ -98,6 +123,9 @@
 
     <script src="./js/vendor/vendor.js"></script>
     <script src="./js/global/global.js"></script>
+    <script src="./js/components/search-autocomplete/search.js"></script>
+    <script src="./js/components/login/login.js"></script>
+
 </body>
 
 </html>

@@ -4,6 +4,8 @@ import GlobalController   from './common/global-controller.controller';
 
 angular.module( 'mss.common', [ 'ngCookies' ] );
 angular.module( 'mss.accordion', [] );
+angular.module( 'mss.search', [] );
+angular.module( 'mss.login', [] );
 // templates
 
 export const humiraModule = angular.module( 'mss', [
@@ -13,7 +15,10 @@ export const humiraModule = angular.module( 'mss', [
     'ngCookies',
     'bhResponsiveImages',
     'ui.bootstrap',
-    'mss.accordion'
+    'mss.common',
+    'mss.accordion',
+    'mss.search',
+    'mss.login'
 ] )
 .config( [ '$qProvider', '$cookiesProvider', function ( $qProvider, $cookiesProvider ) {
     $cookiesProvider.defaults.path = '/';
