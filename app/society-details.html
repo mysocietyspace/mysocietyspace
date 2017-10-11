@@ -18,7 +18,7 @@
 <body ng-app="mss">
     
     <div class="wrapper">
-        <header class="home">
+        <header class="home" style="background-image: url(https://im.proptiger.com/1/640605/6/sowparnika-sanvi-elevation-710434.jpeg)">
             <!-- <video style="width:100%;" autoplay loop muted>
                 <source src="https://www.commonfloor.com/public/images/promos/59870ec142fa4/Tiara_(1).mp4" type="video/mp4" >
             </video> -->
@@ -40,63 +40,16 @@
                         </li>
                         <li><a href="#">Register</a></li>
                     </ul>
-                    <div class="banner-text">
-                        <h2>All your society needs in one space</h2>
-                        <p>Nullam quis ante. Etiam sit amet orci eget eros faucibus <br>
-                           tincidunt. Duis leo. Sed fringilla mauris sit</p>
+                    <div class="banner-text society-detail">
+                        <h2>Sowparnika Sanvi</h2>
+                        <p>Whitefield, Bangalore</p>
                     </div>
                 </div>
             </div>
-            <form class="search-form" ng-controller="SearchControler as ctrl">
-                <input type="search" ng-model="ctrl.searchText" name="search" placeholder="What your looking for..">
-                <span class="search-button">
-                    <i class="material-icons search-btn"></i>
-                </span>
-                <div class="search-auto__complete" ng-show="ctrl.searchText.length > 2">
-                    <ul>
-                        <li ng-repeat="list in ctrl.filterdList = ( ctrl.resultList | filter:ctrl.searchText )">
-                            <a href="society-details.html?{{list.societyName}}" ng-bind="list.societyName"></a>
-                        </li>
-                        <li ng-if="!ctrl.filterdList.length">
-                            this Society is not enrolled with us. click here to enroll.
-                        </li>
-                    </ul>
-                </div>
-            </form>
-            
             <div class="blk-overlay"></div>
         </header>
         <div class="container gutter--top">
-            <section class="enroll">
-                All your society needs in one space. <a href="#" class="primary--submit__button">Enroll your society</a>
-            </section>
-            <section class="home-content">
-                <div class="col-lg-4 bg-color__primary content-box">
-                    <span class="small-head">what is</span>
-                    <h3>Society Space</h3>
-                    <p class="text-color__darkGreen">Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit</p>
-                    <p class="text-color__darkGreen">Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit</p>
-                    <a href="#" class="secondary--submit__button ">read more+</a>
-                </div>
-                <div class="col-lg-8 bg-color__primary-light content-box">
-                        <span class="small-head">what is</span>
-                        <h3>Society Space</h3>
-                        <p>Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit</p>
-                        <p>Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit</p>
-                </div>
-            </section>
-            <section class="testimonial">
-                <div class="testimonial-wrapper">
-                    <div class="col-lg-3 text-align__center">
-                        <img src="assets/images/testimonial.jpg" alt="Tesimonial" />
-                    </div>
-                    <div class="col-lg-9">
-                        <span class="name text-color__blue">Rayees Nadukkandy</span><br>
-                        <span class="tag">Creative Heads</span>
-                        <p>Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit</p>
-                    </div>
-                </div>
-            </section>
+            
         </div>
         <footer>
             <div class="container display-flex has-bottom--border">

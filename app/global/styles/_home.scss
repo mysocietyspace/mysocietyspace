@@ -1,7 +1,9 @@
 header{
+    background-size: cover;
+    height: 400px;
+    background-position: center;
+    background-repeat: no-repeat;
     &.home{
-        background: url('/assets/images/home-banner-bg.jpg') no-repeat;
-        background-size: cover;
-        height: 400px;
+        background-image: url('/assets/images/home-banner-bg.jpg');
     }
 }

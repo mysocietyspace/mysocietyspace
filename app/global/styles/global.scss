@@ -165,13 +165,18 @@ header{
       float: left;
       margin: 95px 0 0;
       color: $text-color-logo;
+      &.society-detail{
+        background-color: rgba( 0, 0, 0, 0.5 );
+        padding: 20px;
+      }
       h2{
-        font-weight: 300;
-        @include font-size(36);
+        font-weight: 600;
+        @include font-size(46);
+        color: #fff;
         margin-bottom: 10px;
       }
       p{
-        color: $text-color-logo;
+        color: #fff;
         font-weight: 300;
       }
     }

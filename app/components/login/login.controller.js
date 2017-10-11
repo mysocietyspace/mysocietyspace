@@ -27,8 +27,30 @@ class LoginController {
         let vm = this;
        
     }
-    getSocietyList() {
+    login() {
+        let vm = this,
+        formData = {
+            UserName:vm.username,
+            Password:vm.password
+        },
+        requestObj = {
+            url: 'login',
+            method: 'POST',
+            data:formData
+        };
+
+        vm.httpService.httpRequest( requestObj ).then(
+        response => {
+            vm.$log.error( response );
+            vm.isResult = response.isSuccess;
+            vm.resultList = response.isSuccess? response.data.dataList : '';
+        },
+        error => {
+            vm.$log.error( error );
+        }
+      );
     }
+
 }
 LoginController.$inject = [ '$document', '$timeout', '$window', '$log', 'httpService' ];
 export default LoginController;
