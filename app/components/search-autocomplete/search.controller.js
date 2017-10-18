@@ -24,26 +24,7 @@ class SearchController {
      * This method is called on initialization of the component, wherein the elements initialization happens and click event are bound.
     */
     $onInit() {
-        let vm = this;
-        vm.getSocietyList();
-       
-    }
-    getSocietyList() {
-        let vm = this,
-        requestObj = {
-            url: 'getSocietyList',
-            method: 'GET'
-        };
-
-        vm.httpService.httpRequest( requestObj ).then(
-        response => {
-            vm.isResult = response.isSuccess;
-            vm.resultList = response.isSuccess? response.data.dataList : '';
-        },
-        error => {
-            vm.$log.error( error );
-        }
-      );
+              
     }
 }
 SearchController.$inject = [ '$document', '$timeout', '$window', '$log', 'httpService' ];

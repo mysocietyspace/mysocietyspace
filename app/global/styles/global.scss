@@ -252,6 +252,102 @@ footer{
 .enroll{
   text-align: center;
 }
+
+.black-overlay{
+  position: fixed;
+  background-color:#000;
+  opacity: .6;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  display: none;
+}
+.overlay-wrapp{
+  width: 90%;
+  max-width: 490px;
+  position: absolute;
+  left: 0; right: 0; top: 20%;
+  margin: auto;
+  z-index: 11;
+  min-height: 200px;
+  display: none;
+  header{
+    width: 100%;
+    padding: 20px;
+    height: auto;
+    background-color: #070811;
+    border-radius: 10px 10px 0 0;
+    border: 1px solid #070811;
+    position: relative;
+    h2{
+      margin: 0px;
+      color: #fff;
+    }
+    .close-icon{
+      position: absolute;
+      right: 20px;
+      top: 0;
+      bottom: 0;
+      margin: auto;
+      height: 20px;
+      color: #fff;
+      cursor: pointer;
+    }
+  }
+  .container{
+    width: 100%;
+    padding: 20px 15px 30px;
+    background-color: #fff;
+    border-radius: 0px 0px 10px 10px;
+    fieldset{
+      margin-bottom: 20px;
+    }
+    label{
+      width: 100%;
+      font-size: 14px;
+      color: #333;
+      padding-bottom: 5px;
+      font-weight: 300;
+    }
+    input{
+      border: 1px solid #dfdfdf;
+      padding: 10px;
+      width: 100%;
+      height: 35px;
+      outline: 0;
+      font-weight: 300;
+      font-size: 13px;
+      border-radius: 5px;
+    }
+    .btn{
+      font-weight: 600;
+      color: #fff;
+      text-transform: uppercase;
+    }
+    .search-auto__complete{
+      position: absolute;
+      background: #fff;
+      padding: 10px;
+      z-index: 1;
+      width: calc(100% - 30px);
+      border: 1px solid #dfdfdf;
+      left: 15px;
+      top: 55px;
+      border-top: 0;
+      border-radius: 0 0 10px 10px;
+      li{
+        font-size: 14px;
+      }
+      a{
+        color: #333;
+        font-size: 14px;
+      }
+    }
+  }
+}
+
 .home-content{
   display: flex;
   margin: 40px 0;
@@ -1009,4 +1105,10 @@ table {
 .disabled {
   background-color: $bg-alt-primary-hover-color;
   border-color: $border-color-hover-grey;
+}
+
+.alert{
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 0;
 }

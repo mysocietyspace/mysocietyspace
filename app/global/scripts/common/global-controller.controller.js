@@ -7,8 +7,9 @@
 
 class GlobalController {
 
-    constructor( $scope, $cookies, $mdSidenav, $mdDialog, $document, $window, $location, commonService, sessionManagementService, orphanPageService ) {
-       
+    constructor( $scope, $cookies, $document, $window, $location, httpService) {
+        this.httpService = httpService;
+    
     }
 
     /**
@@ -20,11 +21,36 @@ class GlobalController {
     */
 
     $onInit() {
-
+        let vm = this;
+        $('.overlay-wrapp').on('click','.close-icon',function(){
+            $('.black-overlay').fadeOut();
+            $(this).parents('.overlay-wrapp').fadeOut();
+        });
+        
+        vm.getSocietyList();
     }
+    getSocietyList() {
+        let vm = this,
+        requestObj = {
+            url: 'getSocietyList',
+            method: 'GET'
+        };
 
-
+        vm.httpService.httpRequest( requestObj ).then(
+        response => {
+            if(response.isSuccess){
+                vm.isResult = response.isSuccess;
+                vm.resultList = response.isSuccess? response.data.dataList : '';
+            }else{
+                vm.$log.error( response );
+            }
+        },
+        error => {
+            vm.$log.error( error );
+        }
+      );
+    }
 }
 
-GlobalController.$inject = [ '$scope', '$cookies', '$mdSidenav', '$mdDialog', '$document', '$window', '$location', 'commonService', 'sessionManagementService', 'orphanPageService' ];
+GlobalController.$inject = [ '$scope', '$cookies', '$document', '$window', '$location', 'httpService' ];
 export default GlobalController;

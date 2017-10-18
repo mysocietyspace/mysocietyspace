@@ -6,7 +6,7 @@
  */
 
 
-class LoginControler {
+class RegisterControler {
 
     constructor( $document, $timeout, $window, $log, httpService ) {
         this.$doc = $document;
@@ -25,16 +25,11 @@ class LoginControler {
     */
     $onInit() {
         let vm = this;
-       $('.register').on('click',function() {
-        $('.black-overlay').fadeIn();
-        $('.overlay-wrapp').fadeIn();
+       $('.registerBtn').on('click',function() {
+            vm.httpService.submitForm($('form[name="register"]'),'signUp');
        })
-    }
-    login() {
-        let vm = this;
-      vm.httpService.submitForm($('form[name="login"]'),'login')
     }
 
 }
-LoginControler.$inject = [ '$document', '$timeout', '$window', '$log', 'httpService' ];
-export default LoginControler;
+RegisterControler.$inject = [ '$document', '$timeout', '$window', '$log', 'httpService' ];
+export default RegisterControler;

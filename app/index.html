@@ -15,9 +15,9 @@
 
 </head>
 
-<body ng-app="mss">
+<body ng-app="mss" ng-controller="GlobalController as global" >
     
-    <div class="wrapper">
+    <div class="wrapper" >
         <header class="home">
             <!-- <video style="width:100%;" autoplay loop muted>
                 <source src="https://www.commonfloor.com/public/images/promos/59870ec142fa4/Tiara_(1).mp4" type="video/mp4" >
@@ -30,15 +30,15 @@
                             <a href="#" ng-click="ctrl.showLogin = ctrl.showLogin ? false : true">Login</a>
                             <div class="login-overlay ng-hide" ng-show="ctrl.showLogin">
                                 <h2>Login</h2>
-                                <form name="login">
-                                    <input type="text" ng-model="ctrl.username" placeholder="username" name="username" />
-                                    <input type="password" ng-model="ctrl.password" placeholder="Password" name="password" />
+                                <form name="login" >
+                                    <input type="text" placeholder="username" name="username" />
+                                    <input type="password" placeholder="Password" name="password" />
                                     <a href="#" class="frgt-lnk">forgot password</a>
                                     <a href="#" class="secondary--submit__button login-btn" ng-click="ctrl.login()">login</a>
                                 </form>
                             </div>
                         </li>
-                        <li><a href="#">Register</a></li>
+                        <li><a href="#" class="register">Register</a></li>
                     </ul>
                     <div class="banner-text">
                         <h2>All your society needs in one space</h2>
@@ -47,14 +47,14 @@
                     </div>
                 </div>
             </div>
-            <form class="search-form" ng-controller="SearchControler as ctrl">
+            <form class="search-form" ng-controller="SearchControler as ctrl" autocomplete="off">
                 <input type="search" ng-model="ctrl.searchText" name="search" placeholder="What your looking for..">
                 <span class="search-button">
                     <i class="material-icons search-btn"></i>
                 </span>
                 <div class="search-auto__complete" ng-show="ctrl.searchText.length > 2">
                     <ul>
-                        <li ng-repeat="list in ctrl.filterdList = ( ctrl.resultList | filter:ctrl.searchText )">
+                        <li ng-repeat="list in ctrl.filterdList = ( global.resultList | filter:ctrl.searchText )">
                             <a href="society-details.html?{{list.societyName}}" ng-bind="list.societyName"></a>
                         </li>
                         <li ng-if="!ctrl.filterdList.length">
@@ -120,11 +120,78 @@
             </div>
         </footer>
     </div>
-
+    <div class="black-overlay"></div>
+    <div class="overlay-wrapp" ng-controller="RegisterControler as ctrl">
+        <header>
+            <h2>Register</h2>
+            <i class="close-icon material-icons "></i>
+        </header>
+        <div class="container">
+            <form name="register" >
+            <input type="hidden" value="member" name="userType" id="userType" />
+            <fieldset>
+                <div class="col-md-12">
+                    <label for="societyName">Society Name</label>
+                    <input name="societyName" ng-model="global.societyText" id="societyName" type="text" />
+                    <div class="search-auto__complete" ng-show="global.societyText.length > 2">
+                    <ul>
+                        <li ng-repeat="list in global.filterdList = ( global.resultList | filter:global.societyText )">
+                            <a href="#" ng-click="global.societyText = list.societyName " ng-bind="list.societyName"></a>
+                        </li>
+                        <li ng-if="!global.filterdList.length">
+                            this Society is not enrolled with us. click here to enroll.
+                        </li>
+                    </ul>
+                </div>
+                </div>
+            </fieldset>
+            <fieldset>
+                <div class="col-md-6">
+                    <label for="firstName">First Name</label>
+                    <input name="firstName" id="firstName" type="text" required />
+                </div>
+                <div class="col-md-6">
+                    <label for="lastName">Last Name</label>
+                    <input name="lastName" id="lastName" type="text" />
+                </div>
+            </fieldset>
+            <fieldset>
+                <div class="col-md-6">
+                    <label for="emailAddress">Email Address</label>
+                    <input name="emailAddress" id="emailAddress" type="email" required />
+                </div>
+                <div class="col-md-6">
+                    <label for="phoneNumber">Phone Number</label>
+                    <input name="phoneNumber" id="phoneNumber" type="tel" required />
+                </div>
+            </fieldset>
+            <fieldset>
+                <div class="col-md-6">
+                    <label for="password">Password</label>
+                    <input name="password" id="password" type="password" required />
+                </div>
+                <div class="col-md-6">
+                    <label for="cnfpassword">Confirm Password</label>
+                    <input name="cnfpassword" id="cnfpassword" type="password" required />
+                </div>
+            </fieldset>
+            <fieldset>
+                <div class="col-md-12">
+                    <label for="supportingDocument">Supporting Document</label>
+                    <input name="supportingDocument" id="supportingDocument" type="file" />
+                </div>
+            </fieldset>
+            <div class="col-md-12">
+                <input type="submit" value="submit" class="btn registerBtn secondary--submit__button" />
+            </div>
+            </form>
+        </div>
+    </div>
     <script src="./js/vendor/vendor.js"></script>
     <script src="./js/global/global.js"></script>
     <script src="./js/components/search-autocomplete/search.js"></script>
     <script src="./js/components/login/login.js"></script>
+    <script src="./js/components/register/register.js"></script>
 
 </body>
 

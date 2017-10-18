@@ -6,6 +6,7 @@ angular.module( 'mss.common', [ 'ngCookies' ] );
 angular.module( 'mss.accordion', [] );
 angular.module( 'mss.search', [] );
 angular.module( 'mss.login', [] );
+angular.module( 'mss.register', [] );
 // templates
 
 export const humiraModule = angular.module( 'mss', [
@@ -18,7 +19,8 @@ export const humiraModule = angular.module( 'mss', [
     'mss.common',
     'mss.accordion',
     'mss.search',
-    'mss.login'
+    'mss.login',
+    'mss.register'
 ] )
 .config( [ '$qProvider', '$cookiesProvider', function ( $qProvider, $cookiesProvider ) {
     $cookiesProvider.defaults.path = '/';
