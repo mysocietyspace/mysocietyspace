@@ -174,8 +174,10 @@
             padding: 10px;
             background-color: #f7f7f7;
             border: 2px solid #eaebeb;
+            overflow: hidden;
             .image-wrapper{
                 position: relative;
+                margin-bottom: 5px;
                 img{
                     max-width: 100%;
                     display: block;
@@ -183,7 +185,7 @@
                 &:before{
                     position: absolute;
                     content: '';
-                    width: 50%;
+                    width: 55%;
                     height: 100%;
                     left: 0;
                     background-color: #000;
@@ -194,9 +196,52 @@
                     position: absolute;
                     color: #fff;
                     left: 0; top: 0;
-                    padding: 10px;
-                    width: 50%;
+                    padding: 10px 5px 10px 10px;
+                    width: 55%;
+                    h5{
+                        margin: 0px;
+                        font-weight: 600;
+                        font-size: 26px;
+                    }
+                    .sqft{
+                        font-size: 14px;
+                    }
+                    h6{
+                        margin:15px 0px;
+                        font-weight: 600;
+                        font-size: 26px; 
+                        span{
+                            font-size: 14px;
+                            font-weight: 300;
+                        }
+                    }
+                    .info{
+                        font-size: 13px;
+                        font-weight: 300;
+                    }
                 }
+            }
+            ul{
+                width: 100%;
+                float: left;
+                li{
+                    width: 100%;
+                    float: left;
+                    padding: 5px 5px 5px 0;
+                    font-size: 14px;
+                    color: #000;
+                    &.half-width{
+                        width: 50%
+                    }
+                }
+            }
+            a{
+                text-align: center;
+                font-weight: 600;
+                font-size: 18px;
+                color: #fff;
+                background-color: #13162b;
+                width: 100%;
             }
         }
     }
