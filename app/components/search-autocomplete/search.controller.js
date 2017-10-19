@@ -8,12 +8,9 @@
 
 class SearchController {
 
-    constructor( $document, $timeout, $window, $log, httpService ) {
-        this.$doc = $document;
-        this.$timeout = $timeout;
-        this.$window = $window;
+    constructor( $log, $cookies ) {
         this.$log = $log;
-        this.httpService = httpService;
+        this.$cookies = $cookies;
     }
 
     /**
@@ -26,6 +23,11 @@ class SearchController {
     $onInit() {
               
     }
+    setSocietyCookie( name ){
+        let vm = this;
+        vm.$cookies.put('societyName', name);
+        document.location.href = 'society-details.html?societyName='+name
+    }
 }
-SearchController.$inject = [ '$document', '$timeout', '$window', '$log', 'httpService' ];
+SearchController.$inject = [ '$log', '$cookies' ];
 export default SearchController;

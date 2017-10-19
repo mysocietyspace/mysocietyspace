@@ -18,7 +18,7 @@
 
 <body ng-app="mss">
     
-    <div class="wrapper">
+    <div class="wrapper" ng-controller="SocietyDetailsController as society">
         <header class="home" style="background-image: url(https://im.proptiger.com/1/640605/6/sowparnika-sanvi-elevation-710434.jpeg)">
             <!-- <video style="width:100%;" autoplay loop muted>
                 <source src="https://www.commonfloor.com/public/images/promos/59870ec142fa4/Tiara_(1).mp4" type="video/mp4" >
@@ -42,8 +42,9 @@
                         <li><a href="#">Register</a></li>
                     </ul>
                     <div class="banner-text society-detail">
-                        <h2>Sowparnika Sanvi</h2>
-                        <p>Whitefield, Bangalore</p>
+                        <h2 ng-bind="society.societyDetails.societyName"></h2>
+                        <p ng-bind="society.societyDetails.societyAddress1 +' '+ society.societyDetails.societyAddress2"></p>
+                        <p ng-bind=" society.societyDetails.societyCity +' '+ society.societyDetails.societyState +' '+society.societyDetails.societyZip"></p>
                     </div>
                 </div>
             </div>
@@ -53,8 +54,8 @@
             <div class="society-intro">
                 <div class="col-md-6">
                     <span class="tag">My Society Space</span>
-                    <h1>Introducing <br> Sowparnika Sanvi</h1>
-                    <p class="left-padding">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+                    <h1>Introducing <br> {{society.societyDetails.societyName}} </h1>
+                    <p class="left-padding" ng-bind="society.societyDetails.description"></p>
                 </div>
                 <div class="col-md-6">
                     <div class="mapView right-padding">
@@ -64,63 +65,35 @@
                 <div class="col-md-12">
                     <div class="quick-view">
                         <div class="col-md-3 quick-info">
-                            <h4>136</h4>
-                            <span>Luxe Apartment</span>
+                            <h4>216</h4>
+                            <span>Flats</span>
                         </div>
                         <div class="col-md-3 quick-info">
-                            <h4>136</h4>
-                            <span>Luxe Apartment</span>
+                            <h4>5</h4>
+                            <span>Bloack</span>
                         </div>
                         <div class="col-md-3 quick-info">
-                            <h4>136</h4>
-                            <span>Luxe Apartment</span>
+                            <h4>2012</h4>
+                            <span>Since</span>
                         </div>
                         <div class="col-md-3 quick-info">
-                            <h4>136</h4>
-                            <span>Luxe Apartment</span>
+                            <h4>586</h4>
+                            <span>MSS Members</span>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <section class="amenties">
+        <section class="amenties" ng-if="society.societyDetails.amenities.length > 0">
             <div class="container">
                 <div class="amenties-container">
                     <h3>Amenities</h3>
                     <ul class="list-item">
-                        <li>
+                        <li ng-repeat="item in society.societyDetails.amenities">
                             <span class="icon">
-                                    <i class="material-icons">fitness_center</i>
+                                <i class="{{item.amenityIcon}} fi"></i>
                             </span>
-                            Gymnasium
-                        </li>
-                        <li>
-                            <span class="icon"></span>
-                            Indoor Badminton Court
-                        </li>
-                        <li>
-                            <span class="icon"></span>
-                            Aerobics / Yoga Studio
-                        </li>
-                        <li>
-                            <span class="icon"></span>
-                            Table Tennis (2 nos.)
-                        </li>
-                        <li>
-                            <span class="icon"></span>
-                            Table Tennis (2 nos.)
-                        </li>
-                        <li>
-                            <span class="icon"></span>
-                            Table Tennis (2 nos.)
-                        </li>
-                        <li>
-                            <span class="icon"></span>
-                            Table Tennis (2 nos.)
-                        </li>
-                        <li>
-                            <span class="icon"></span>
-                            Table Tennis (2 nos.)
+                            {{item.amenityName}}
                         </li>
                     </ul>
                 </div>
@@ -139,76 +112,30 @@
             </div>
 
         </section>
-        <section class="rentals">
+        <section class="rentals" ng-if="society.societyDetails.rentalHomes.length > 0">
             <div class="container">
                 <div class="rentals-container">
-                    <div class="col-md-4">
+                    <div class="col-md-4 rentalList" ng-repeat="item in society.societyDetails.rentalHomes">
                             <div class="rental-house">
                                     <div class="image-wrapper">
                                         <img src="/assets/images/rental-house.jpg" alt="img" >
                                         <div class="rental-quickInfo">
-                                            <h5>2 BHK</h5>
-                                            <span class="sqft">1230 SQFT</span>
-                                            <h6>₹18K<span>/month</span> </h6>
-                                            <span class="info">Deposit: ₹ 1 Lakh</span>
-                                            <span class="info">Availability: from oct 1st</span>
+                                            <h5 ng-bind="item.houseType"></h5>
+                                            <span class="sqft">{{item.squareFeet}} SQFT</span>
+                                            <h6>₹{{item.rent}}<span>/month</span> </h6>
+                                            <span class="info">Deposit: ₹ {{item.deposit}}</span>
+                                            <span class="info">Availability: {{item.availablityFrom}}</span>
                                         </div>
                                     </div>
                                     <ul>
-                                        <li class="half-width">Floor No : 3</li>
-                                        <li class="half-width">Block No : 3A</li>
-                                        <li class="half-width">Facing : East</li>
-                                        <li class="half-width">Parking : Coverd</li>
-                                        <li>Preference : family/Bachelor</li>
-                                        <li>Furnished: Semi Furnished</li>
+                                        <li class="half-width">Flat No : {{item.doorNumber}}</li>
+                                        <li class="half-width">Block No : {{item.block}}</li>
+                                        <li class="half-width">Facing : {{item.facing}}</li>
+                                        <li class="half-width">Parking : {{item.parking}}</li>
+                                        <li>Preference : {{item.preference}}</li>
+                                        <li>Furnished: {{item.furnished}}</li>
                                     </ul>
-                                    <a href="#" class="btn button-secondary">+91 9036727434</a>
-                                </div>
-                    </div>
-                    <div class="col-md-4">
-                            <div class="rental-house">
-                                    <div class="image-wrapper">
-                                        <img src="/assets/images/rental-house.jpg" alt="img" >
-                                        <div class="rental-quickInfo">
-                                            <h5>2 BHK</h5>
-                                            <span class="sqft">1230 SQFT</span>
-                                            <h6>₹18K<span>/month</span> </h6>
-                                            <span class="info">Deposit: ₹ 1 Lakh</span>
-                                            <span class="info">Availability: from oct 1st</span>
-                                        </div>
-                                    </div>
-                                    <ul>
-                                        <li class="half-width">Floor No : 3</li>
-                                        <li class="half-width">Block No : 3A</li>
-                                        <li class="half-width">Facing : East</li>
-                                        <li class="half-width">Parking : Coverd</li>
-                                        <li>Preference : family/Bachelor</li>
-                                        <li>Furnished: Semi Furnished</li>
-                                    </ul>
-                                    <a href="#" class="btn button-secondary">+91 9036727434</a>
-                                </div>
-                    </div>
-                    <div class="col-md-4">
-                            <div class="rental-house">
-                                    <div class="image-wrapper">
-                                        <img src="/assets/images/rental-house.jpg" alt="img" >
-                                        <div class="rental-quickInfo">
-                                            <h5>2 BHK</h5>
-                                            <span class="sqft">1230 SQFT</span>
-                                            <h6>₹18K<span>/month</span> </h6>
-                                            <span class="info">Deposit: ₹ 1 Lakh</span>
-                                            <span class="info">Availability: from oct 1st</span>
-                                        </div>
-                                    </div>
-                                    <ul>
-                                        <li class="half-width">Floor No : 3</li>
-                                        <li class="half-width">Block No : 3A</li>
-                                        <li class="half-width">Facing : East</li>
-                                        <li class="half-width">Parking : Coverd</li>
-                                        <li>Preference : family/Bachelor</li>
-                                        <li>Furnished: Semi Furnished</li>
-                                    </ul>
-                                    <a href="#" class="btn button-secondary">+91 9036727434</a>
+                                    <a href="tel:{{item.ownerContact}}" class="btn button-secondary">+91 {{item.ownerContact}}</a>
                                 </div>
                     </div>
                 </div>
@@ -241,6 +168,7 @@
     <script src="./js/global/global.js"></script>
     <script src="./js/components/search-autocomplete/search.js"></script>
     <script src="./js/components/login/login.js"></script>
+    <script src="./js/components/society-details/society-details.js"></script>
 
 </body>
 

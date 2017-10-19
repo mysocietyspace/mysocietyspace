@@ -55,7 +55,7 @@
                 <div class="search-auto__complete" ng-show="ctrl.searchText.length > 2">
                     <ul>
                         <li ng-repeat="list in ctrl.filterdList = ( global.resultList | filter:ctrl.searchText )">
-                            <a href="society-details.html?{{list.societyName}}" ng-bind="list.societyName"></a>
+                            <a href="javascript:;" ng-click="ctrl.setSocietyCookie(list.societyName)" ng-bind="list.societyName"></a>
                         </li>
                         <li ng-if="!ctrl.filterdList.length">
                             this Society is not enrolled with us. click here to enroll.

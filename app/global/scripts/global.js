@@ -7,6 +7,8 @@ angular.module( 'mss.accordion', [] );
 angular.module( 'mss.search', [] );
 angular.module( 'mss.login', [] );
 angular.module( 'mss.register', [] );
+angular.module( 'mss.societyDetails', [] );
+
 // templates
 
 export const humiraModule = angular.module( 'mss', [
@@ -20,11 +22,12 @@ export const humiraModule = angular.module( 'mss', [
     'mss.accordion',
     'mss.search',
     'mss.login',
-    'mss.register'
+    'mss.register',
+    'mss.societyDetails'
 ] )
 .config( [ '$qProvider', '$cookiesProvider', function ( $qProvider, $cookiesProvider ) {
     $cookiesProvider.defaults.path = '/';
-    $cookiesProvider.defaults.secure = true;
+ //   $cookiesProvider.defaults.secure = true;
 } ] )
 
 .controller( 'GlobalController', GlobalController );

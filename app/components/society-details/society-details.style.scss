@@ -35,7 +35,6 @@
             }
             span{
                 color: #eff0f0;
-                padding-left: 12px;
                 font-style: italic;
             }
         }
@@ -168,6 +167,9 @@
             font-size: 30px;
             text-transform: uppercase;
             color: #333;
+        }
+        .rentalList{
+            padding: 15px;
         }
         .rental-house{
             width: 100%;

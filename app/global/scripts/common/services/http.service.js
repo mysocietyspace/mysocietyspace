@@ -85,6 +85,26 @@
             }
         )
      }
+     /**
+    * @ngdoc function
+    * @name AbbVieCommon.service:CommonService#getUrlParm
+    * @methodOf AbbVieCommon.service:CommonService
+    * @description
+    * To get the specific URL parameter from the URL.
+    * @returns {String} parameter value from url
+    */
+
+    getUrlParm( variable ) {
+        let self = this,
+            query = self.$window.location.search.substring( 1 ),
+            vars = query.split( '&' );
+        for ( let i = 0; i < vars.length; i ++ ) {
+            let pair = vars[ i ].split( '=' );
+            if ( pair[ 0 ] === variable ) {
+                return pair[ 1 ];
+            }
+        }
+    }
 }
 
 
