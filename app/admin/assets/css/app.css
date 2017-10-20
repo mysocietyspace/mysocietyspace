@@ -74,10 +74,19 @@ hr { border-top: 1px solid #e6ecf5; }
 
 .text-danger { color: #ff3c7e !important; }
 
+.flex{
+  display: flex;
+}
+
 .bg-society-primary { background-color:  #12405d !important; }
 .bg-society-secondary { background-color:  #173142 !important; }
-
+.bg-green{
+  background-color: #32936f !important;
+}
 .bg-white { background-color: #ffffff !important; }
+.bg-yellow { background-color: #ffbf00 !important; }
+.bg-plum { background-color: #e83f6f !important; }
+.bg-aquablue { background-color: #059a98 !important; }
 
 .bg-dark { background-color: #515365 !important; }
 
@@ -3621,3 +3630,35 @@ glyphs.character-mapping { margin: 0 0 20px 0; padding: 20px 0 20px 30px; color:
 .gallery-item:hover .overlay { opacity: 1; visibility: visible; }
 
 .pswp__caption__center { text-align: center; }
+
+
+
+
+.society-space-Link{
+  width: 20%;
+  float: left;
+  padding: 0 10px;
+  margin: 0 0 20px;
+}
+.society-space-Link > div{
+  padding:20px;
+  cursor: pointer;
+  color:#fff;
+  position:relative;
+  padding-bottom:40px;
+}
+.society-space-Link > div h5{
+  color:#fff;
+  font-size:25px;
+}
+.society-space-Link > div a{
+  position: absolute;
+  left:0;
+  right:0;
+  bottom:0;
+  background-color:rgba(0, 0, 0, 0.5);
+  width:100%;
+  text-align: center;
+  padding:5px;
+  color:#fff;
+}
